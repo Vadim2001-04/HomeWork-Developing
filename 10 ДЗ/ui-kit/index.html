@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UI Kit</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="header__title">UI Kit — Библиотека компонентов</h1>
+    <nav class="navbar">
+      <div class="navbar__logo">Logo</div>
+      <ul class="navbar__menu">
+        <li class="navbar__item"><a href="#">Главная</a></li>
+        <li class="navbar__item"><a href="#">О нас</a></li>
+        <li class="navbar__item"><a href="#">Контакты</a></li>
+      </ul>
+      <button class="navbar__toggle">&#9776;</button>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="section">
+      <h2 class="section__subtitle">Кнопки</h2>
+      <div class="component-buttons">
+        <button class="button button--primary button--medium">Primary</button>
+        <button class="button button--secondary button--small">Secondary</button>
+        <button class="button button--disabled button--large" disabled>Disabled</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__subtitle">Поля ввода</h2>
+      <div class="component-inputs">
+        <input type="text" class="input input--normal" placeholder="Нормальное поле" />
+        <input type="text" class="input input--focus" placeholder="Фокусированное" />
+        <input type="text" class="input input--error" placeholder="Ошибка" />
+        <div class="input input--with-icon">
+          <img src="assets/search.svg" alt="Search" class="input__icon" />
+          <input type="text" placeholder="Поиск..." />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__subtitle">Карточки</h2>
+      <div class="card-grid">
+        <div class="card card--medium">
+          <img src="https://via.placeholder.com/300x200 " alt="Картинка" class="card__image" />
+          <div class="card__content">
+            <h3 class="card__title">Заголовок карточки</h3>
+            <p class="card__text">Текст описания карточки.</p>
+          </div>
+        </div>
+        <div class="card card--no-image card--small">
+          <div class="card__content">
+            <h3 class="card__title">Без изображения</h3>
+            <p class="card__text">Простая карточка без картинки.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 UI Kit by Student</p>
+  </footer>
+
+  <script>
+    document.querySelector('.navbar__toggle').addEventListener('click', () => {
+      document.querySelector('.navbar__menu').classList.toggle('navbar__menu--active');
+    });
+  </script>
+</body>
+</html>
