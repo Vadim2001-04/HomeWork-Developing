@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Игра с таймерами</title>
+  <style>
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button[disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <h1>Игра с таймерами</h1>
+  <p id="instruction">Нажмите кнопку через 3 секунды</p>
+  <button id="actionButton" disabled>Нажми меня</button>
+  <p id="result"></p>
+
+  <script>
+    const instruction = document.getElementById('instruction');
+    const actionButton = document.getElementById('actionButton');
+    const resultText = document.getElementById('result');
+
+    let startTime;
+
+    // Функция для генерации случайной задержки
+    function getRandomDelay(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    // Функция для начала игры
+    function startGame() {
+      instruction.textContent = 'Подождите...';
+      actionButton.disabled = true;
+
+      // Случайная задержка от 1 до 5 секунд
+      const delay = getRandomDelay(1000, 5000);
+      setTimeout(() => {
+        instruction.textContent = 'Нажмите кнопку сейчас!';
+        actionButton.disabled = false;
+        startTime = Date.now(); // Запоминаем время активации кнопки
+      }, delay);
+    }
+
+    // Обработчик клика по кнопке
+    actionButton.addEventListener('click', () => {
+      const reactionTime = Date.now() - startTime;
+      resultText.textContent = `Ваше время реакции: ${reactionTime} мс`;
+      actionButton.disabled = true;
+    });
+
+    // Запускаем игру
+    startGame();
+  </script>
+</body>
+</html>

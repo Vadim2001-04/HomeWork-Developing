@@ -1,0 +1,32 @@
+.button {
+  font-family: $font-family;
+  border-radius: $radius;
+  padding: 0.5em 1em;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &--primary {
+    background-color: $color-primary;
+    color: white;
+
+    &:hover { background-color: darken($color-primary, 10%); }
+    &:active { background-color: darken($color-primary, 15%); }
+  }
+
+  &--secondary {
+    background-color: $color-secondary;
+    color: white;
+
+    &:hover { background-color: darken($color-secondary, 10%); }
+  }
+
+  &--disabled {
+    background-color: $color-disabled;
+    cursor: not-allowed;
+  }
+
+  &--small { font-size: $font-size-small; }
+  &--medium { font-size: $font-size-medium; }
+  &--large { font-size: $font-size-large; }
+}

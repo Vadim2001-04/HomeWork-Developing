@@ -1,0 +1,32 @@
+.card {
+  border: 1px solid #ddd;
+  border-radius: $radius;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  &--no-image .card__image {
+    display: none;
+  }
+
+  &--small { width: 200px; }
+  &--medium { width: 300px; }
+  &--large { width: 400px; }
+
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+
+  &__content {
+    padding: $spacing;
+  }
+
+  &__title {
+    margin: 0 0 0.5rem;
+  }
+}

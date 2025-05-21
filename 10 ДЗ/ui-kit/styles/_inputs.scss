@@ -1,0 +1,36 @@
+.input {
+  font-family: $font-family;
+  font-size: $font-size-medium;
+  padding: 0.5em;
+  border-radius: $radius;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 1rem;
+
+  &--focus {
+    outline: 2px solid $color-primary;
+  }
+
+  &--error {
+    border-color: $color-error;
+    background-color: #f8d7da;
+  }
+
+  &--with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .input__icon {
+      position: absolute;
+      left: 10px;
+      width: 16px;
+      height: 16px;
+    }
+
+    input {
+      padding-left: 30px;
+    }
+  }
+}

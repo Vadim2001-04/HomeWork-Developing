@@ -13,5 +13,13 @@
 
 ### 1. Клонировать репозиторий
 ```bash
-git clone https://github.com/alexprosto/game-pc-store-fullstack.git 
+git clone https://github.com/Vadim2001-04/HomeWork-Developing.git 
 cd game-pc-store-fullstack
+
+docker-compose up --build
+
+cd backend
+pytest tests/
+
+cd frontend
+npm test

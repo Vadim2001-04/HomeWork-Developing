@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Прогресс-бар</title>
+  <style>
+    #progress-bar {
+      width: 100%;
+      height: 20px;
+      background-color: lightgray;
+      border: 1px solid black;
+      position: relative;
+    }
+    #progress-bar > div {
+      height: 100%;
+      background-color: green;
+      width: 0%;
+      transition: width 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <h1>Прогресс-бар</h1>
+  <div id="progress-bar">
+    <div></div>
+  </div>
+  <p id="status"></p>
+
+  <script>
+    // Создаем элементы
+    const progressBar = document.getElementById('progress-bar');
+    const progressInner = progressBar.querySelector('div');
+    const statusText = document.getElementById('status');
+
+    // Функция для обновления прогресса
+    function updateProgress(percent) {
+      progressInner.style.width = `${percent}%`;
+    }
+
+    // Асинхронная функция для имитации задачи
+    async function simulateTask() {
+      for (let i = 0; i <= 100; i += 20) {
+        updateProgress(i);
+        await delay(1000); // Задержка 1 секунда
+      }
+      updateProgress(100);
+      statusText.textContent = 'Готово!';
+    }
+
+    // Запускаем задачу
+    simulateTask();
+  </script>
+</body>
+</html>
