@@ -7,6 +7,7 @@ const mockProduct = {
   name: 'Alienware Aurora R15',
   price: 3000,
   rating: 4.8,
+  image: "https://via.placeholder.com/300",
 };
 
 test('renders product card with correct info', () => {

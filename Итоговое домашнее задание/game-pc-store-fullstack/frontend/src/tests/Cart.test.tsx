@@ -21,7 +21,7 @@ describe('Cart Page', () => {
 
   test('calls remove function when remove button is clicked', () => {
     render(<CartPage />);
-    const removeButton = screen.getByText(/Remove/i);
+    const removeButton = screen.getByText(/remove/i);
     fireEvent.click(removeButton);
     expect(jest.fn()).toHaveBeenCalledTimes(1);
   });

@@ -12,8 +12,12 @@ const useCart = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   const fetchCart = async () => {
-    const response = await axios.get('/cart');
-    setCartItems(response.data);
+    try {
+      const response = await axios.get('/cart');
+      setCartItems(response.data);
+    } catch (error) {
+      console.error('Error fetching cart:', error);
+    }
   };
 
   const addToCart = async (productId: number, quantity: number = 1) => {

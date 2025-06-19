@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useCart } from '../hooks/useCart';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import CartItem from '../components/CartItem';
+import { useCart } from '../hooks/useCart';
 
 const CartPage: React.FC = () => {
   const { cartItems, removeFromCart, updateQuantity } = useCart();
@@ -12,6 +13,7 @@ const CartPage: React.FC = () => {
 
   const handleDragEnd = (result: any) => {
     if (!result.destination) return;
+
     const reorderedItems = Array.from(items);
     const [movedItem] = reorderedItems.splice(result.source.index, 1);
     reorderedItems.splice(result.destination.index, 0, movedItem);
